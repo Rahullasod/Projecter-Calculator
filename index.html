@@ -27,7 +27,7 @@
       <button class="btns" onclick="display('.')">.</button>
       <button class="btns" onclick="display('0')">0</button>
       <button class="btns" onclick="display('/')">/</button>
-      <button class="btns" onclick="display('*')">*</button>
+      <button class="btns" onclick="display('*')">X</button>
       <button class="btns reset" onclick="cleardisplay()">RESET</button>
       <button class="btns equalsto" onclick="calculate()">=</button>
     </div>
@@ -47,9 +47,12 @@
     inputfeild.style.backgroundColor=('#181F32')
   }
 
-  function deleteone() { 
-    
+  function deleteone() {
+  if (inputfeild.value.length > 0) {
+    const newValue = inputfeild.value.slice(0, -1);
+    inputfeild.value = newValue;
   }
+}
 
   function calculate() { 
     inputfeild.value = eval(inputfeild.value);
